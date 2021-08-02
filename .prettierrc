@@ -1,0 +1,8 @@
+{
+  "overrides": [
+    {
+      "files": ".*rc",
+      "options": { "parser": "json" }
+    }
+  ]
+}

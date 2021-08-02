@@ -1,0 +1,4 @@
+{
+  "*": ["npm run prettier", "npm run lint:es"],
+  "**/*.{css,scss,sass}": "npm run lint:css"
+}

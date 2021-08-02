@@ -1,0 +1,13 @@
+# dependencies
+/node_modules
+/.pnp
+.pnp.js
+
+# .ignore files
+**/.*ignore
+
+# husky
+.husky/
+
+# .cache
+/.cache/*

@@ -8,20 +8,19 @@
     "@testing-library/user-event": "^12.1.10",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
-    "react-scripts": "4.0.3",
-    "web-vitals": "^1.0.1"
+    "react-scripts": "4.0.3"
   },
   "scripts": {
+    "quality-code": "lint-staged --verbose --allow-empty",
+    "lint:commitmsg": "commitlint --verbose --color --edit",
+    "lint:es": "eslint --fix --no-error-on-unmatched-pattern --cache --format=codeframe --ext .js, .jsx, .ts --cache-location \".cache/\"",
+    "lint:css": "stylelint --fix --ignore-disables --cache --report-invalid-scope-disables --report-needless-disables --formatter=verbose --cache-location \".cache/\"",
+    "prettier": "prettier --write --no-error-on-unmatched-pattern --ignore-unknown",
+    "prepare": "husky install",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
-  },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
   },
   "browserslist": {
     "production": [
@@ -34,5 +33,17 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@commitlint/config-conventional": "^13.1.0",
+    "commitlint": "^13.1.0",
+    "eslint": "^7.32.0",
+    "husky": "^7.0.1",
+    "lint-staged": "^11.1.1",
+    "prettier": "^2.3.2",
+    "stylelint": "^13.13.1",
+    "stylelint-config-prettier": "^8.0.2",
+    "stylelint-config-standard": "^22.0.0",
+    "stylelint-scss": "^3.20.1"
   }
 }

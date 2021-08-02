@@ -1,0 +1,15 @@
+{
+  "plugins": ["stylelint-scss"],
+  "extends": ["stylelint-config-standard", "stylelint-config-prettier"],
+  "reportNeedlessDisables": true,
+  "ignoreDisables": true,
+  "rules": {
+    "at-rule-no-unknown": null,
+    "color-hex-case": "lower",
+    "number-leading-zero": "always",
+    "scss/at-rule-no-unknown": true,
+    "color-no-hex": true,
+    "color-no-invalid-hex": true,
+    "unit-disallowed-list": ["px", "rad", "pt", "ex"]
+  }
+}

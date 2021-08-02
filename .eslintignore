@@ -1,0 +1,12 @@
+*
+
+#  any distinct file
+!(**/*.{js,ts,tsx,jsx})
+
+# dependencies
+/node_modules
+/.pnp
+.pnp.js
+
+# .cache
+/.cache/*
