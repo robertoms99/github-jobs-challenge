@@ -1,0 +1,38 @@
+:root {
+  --color-purple-black: rgb(40, 37, 56);
+  --color-accent: rgb(30, 134, 255);
+  --color-light-grey: rgb(246, 247, 251);
+  --color-grey: rgb(185, 189, 207);
+  --color-dark-blue: rgb(51, 70, 128);
+  --app-background-color: var(--color-light-grey);
+  --text-color-primary: var(--color-dark-blue);
+  --font-family-primary: "Roboto";
+  --font-family-secondary: "Poppins";
+  --font-families-fallbacks: -apple-system, blinkmacsystemfont, "Segoe UI",
+    "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans",
+    "Helvetica Neue", sans-serif;
+  --font-primary-config: var(--font-family-primary),
+    var(--font-families-fallbacks);
+  --font-secondary-config: var(--font-family-secondary),
+    var(--font-families-fallbacks);
+}
+
+$breakpoints: (
+  "xxxlg": 125em,
+  //2000
+  "xxlg": 90em,
+  //1440,
+  "xlg": 75em,
+  //1200,
+  "lg": 62em,
+  //992
+  "md": 48em,
+  //768,
+  "sm": 32em,
+  //512,
+  "xsm": 22.5em,
+  //320,
+  "xxsm": 17.5em,
+  //280
+  "xxxsm": 10.625em // 170,
+);
