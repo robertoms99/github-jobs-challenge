@@ -12,6 +12,7 @@ body {
   font-size: 1.6rem;
   font-family: var(--font-primary-config);
   color: var(--text-color-primary);
+  background-color: var(--app-background-color);
 }
 
 html,
@@ -21,7 +22,7 @@ body {
 
 .container {
   margin: auto;
-  width: 85%;
+  width: 95%;
   padding: 1em 0;
 }
 

@@ -15,6 +15,7 @@
     var(--font-families-fallbacks);
   --font-secondary-config: var(--font-family-secondary),
     var(--font-families-fallbacks);
+  --banner-home-image: url("../../assets/images/hero-background.png");
 }
 
 $breakpoints: (
@@ -34,5 +35,5 @@ $breakpoints: (
   //320,
   "xxsm": 17.5em,
   //280
-  "xxxsm": 10.625em // 170,
+  "xxxsm": 10.625em // 170,,
 );

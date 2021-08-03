@@ -1,0 +1,10 @@
+.root {
+  display: flex;
+  background-color: white;
+  padding: 0 0.5em;
+  align-items: center;
+}
+
+.input {
+  flex-grow: 1;
+}
