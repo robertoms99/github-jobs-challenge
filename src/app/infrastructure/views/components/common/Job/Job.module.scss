@@ -1,0 +1,26 @@
+.root {
+  padding: 0.85em;
+  box-shadow: 0 0.2rem 0.4rem rgba(0, 0, 0, 0.05);
+  background-color: white;
+  display: flex;
+}
+
+.root,
+.media {
+  border-radius: 0.4rem;
+}
+
+.contentLeft {
+  margin-right: 1em;
+}
+
+.contentRight {
+  flex-grow: 1;
+}
+
+.media {
+  --media-dimension: 5.6em;
+
+  width: var(--media-dimension);
+  height: var(--media-dimension);
+}
