@@ -1,0 +1,31 @@
+.root {
+  font-size: var(--font-secondary-config);
+}
+
+.inputGroup {
+  display: flex;
+  width: max-content;
+  margin-left: 0.5em;
+  font-weight: 500;
+  text-transform: capitalize;
+}
+
+.radio,
+.checkbox {
+  margin: 0 0.75em 0.85em 0;
+}
+
+.locationGroup {
+  margin-top: 2em;
+}
+
+.inputCity {
+  margin: 1.65em 0;
+}
+
+.headingLocation {
+  font-weight: 700;
+  font-size: 0.85em;
+  text-transform: uppercase;
+  color: var(--color-grey);
+}

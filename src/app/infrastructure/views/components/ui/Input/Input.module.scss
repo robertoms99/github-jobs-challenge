@@ -1,10 +1,16 @@
 .root {
-  width: 100%;
-  padding: 0.85em 0.75em;
-  background-color: white;
-  color: var(--color-grey);
-  &::placeholder {
-    font-size: 1.2rem;
-    color: inherit;
+  &:not([type]),
+  &[type="text"],
+  &[type="email"],
+  &[type="url"],
+  &[type="search"] {
+    width: 100%;
+    padding: 0.85em 0.75em;
+    background-color: white;
+    color: var(--color-grey);
+    &::placeholder {
+      font-size: 1.2rem;
+      color: inherit;
+    }
   }
 }

@@ -3,6 +3,9 @@
   background-color: white;
   padding: 0 0.5em;
   align-items: center;
+  border-radius: 0.4rem;
+  box-shadow: 0 0.2rem 0.4rem rgba(0, 0, 0, 0.05);
+  color: var(--color-grey);
 }
 
 .input {

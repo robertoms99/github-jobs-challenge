@@ -1,10 +1,11 @@
 import style from "./TaggedIcon.module.scss";
 import cn from "classnames";
+import Icon from "../Icon";
 
-export default function ({ className, children }) {
+export default function ({ className, icon, children }) {
   return (
     <div className={cn(className, style.root)}>
-      <i className={cn(className)}>ico</i>
+      <Icon className={cn(className)} icon={icon} />
       <span>{children}</span>
     </div>
   );
