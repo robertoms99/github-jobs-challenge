@@ -13,6 +13,7 @@
 .radio,
 .checkbox {
   margin: 0 0.75em 0.85em 0;
+  vertical-align: middle;
 }
 
 .locationGroup {
@@ -28,4 +29,8 @@
   font-size: 0.85em;
   text-transform: uppercase;
   color: var(--color-grey);
+}
+
+.formLocation {
+  margin-bottom: 1.65em;
 }
