@@ -1,3 +1,4 @@
+import Form from "../../components/common/Form/Form";
 import Logo from "../../components/common/Logo/Logo";
 import style from "./Home.module.scss";
 
@@ -7,7 +8,9 @@ export default function () {
       <div className={style.root}>
         <Logo />
         <div className={style.banner}>
-          <form action="" className={style.form}></form>
+          <Form className={style.form}>
+            <Button>search</Button>
+          </Form>
         </div>
       </div>
     </main>
