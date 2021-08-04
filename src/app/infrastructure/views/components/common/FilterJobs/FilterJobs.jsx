@@ -5,6 +5,7 @@ import cn from "classnames";
 import { faGlobeAfrica } from "@fortawesome/free-solid-svg-icons";
 import style from "./FilterJobs.module.scss";
 import SubHeading from "../../ui/SubHeading";
+import { DEFAULT_LOCATIONS } from "../../../../../domain/setting/constants";
 
 export default function ({ className }) {
   return (
@@ -24,7 +25,7 @@ export default function ({ className }) {
             className={style.inputCity}
           />
           <div className={style.radioGroup}>
-            {["london", "amsterdam", "New york", "Berlin"].map((ele, index) => (
+            {DEFAULT_LOCATIONS.map((location, index) => (
               <div className={style.inputGroup}>
                 <Input
                   defaultChecked={index === 0}
@@ -33,12 +34,13 @@ export default function ({ className }) {
                   id={`filter-locations-default-${index}`}
                   key={`filter-locations-default-${index}`}
                   className={style.radio}
+                  value={location}
                 />
                 <label
                   htmlFor={`filter-locations-default-${index}`}
                   className={style.inputLabel}
                 >
-                  {ele}
+                  {location.toLowerCase()}
                 </label>
               </div>
             ))}

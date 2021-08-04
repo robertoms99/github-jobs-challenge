@@ -14,4 +14,12 @@ const APP_ROUTES = [
   },
 ];
 
-export { APP_ROUTES };
+const CONTEXT_STATE_FILTERS = {
+  location: "",
+  description: "",
+  isFullTime: false,
+};
+
+const DEFAULT_LOCATIONS = ["london", "amsterdam", "new york", "berlin"];
+
+export { APP_ROUTES, DEFAULT_LOCATIONS, CONTEXT_STATE_FILTERS };

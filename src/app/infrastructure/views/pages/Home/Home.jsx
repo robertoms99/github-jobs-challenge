@@ -9,8 +9,13 @@ import InputDecorated from "../../components/ui/InputDecorated";
 import cn from "classnames";
 import FilterJobs from "../../components/common/FilterJobs";
 import Pagination from "../../components/common/Pagination";
+import { useJobs } from "./hooks/useJobs";
+import { useEffect } from "react";
 
 export default function () {
+  const { jobs, ...jobsHook } = useJobs([1]);
+  useEffect(jobsHook.getFilteredJobs);
+
   return (
     <main className="container">
       <div className={style.root}>
@@ -30,10 +35,7 @@ export default function () {
             <FilterJobs className={style.filterJobs} />
           </article>
           <article className={style.rightContent}>
-            <JobList
-              jobs={[{ id: 1 }, { id: 2 }, { id: 3 }, { id: 4 }, { id: 5 }]}
-              className={style.jobList}
-            />
+            <JobList jobs={jobs} className={style.jobList} />
           </article>
         </section>
         <Pagination count={5} className={style.pagination} />
