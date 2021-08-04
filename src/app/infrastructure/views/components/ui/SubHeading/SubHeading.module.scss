@@ -1,6 +1,8 @@
 .root {
   font-weight: 700;
-  font-size: 0.875em;
+  font-size: 1.4rem;
   text-transform: uppercase;
   color: var(--color-grey);
+  font-family: var(--font-secondary-config);
+  line-height: 1.666;
 }

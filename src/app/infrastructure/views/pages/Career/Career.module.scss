@@ -8,6 +8,19 @@
   margin-bottom: 1.6rem;
 }
 
+.instructions,
+.back {
+  font-size: 0.85em;
+}
+
+.heading {
+  margin-bottom: 0.25em;
+}
+
+.time {
+  margin: 0.625em 0 2.3em;
+}
+
 .paragraph {
   margin-bottom: 2.25em;
   font-family: var(--font-secondary-config);
@@ -15,7 +28,7 @@
 }
 
 .back {
-  margin: 2em 0;
+  margin-bottom: 2.25em;
 }
 
 .content {
@@ -36,4 +49,30 @@
   @include tablet {
     flex: 1;
   }
+}
+
+.detail {
+  white-space: pre-line;
+  line-height: 2.4rem;
+}
+
+.company {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  grid-template-rows: repeat(2, auto);
+  grid-column-gap: 1.2rem;
+  margin-bottom: 2.12em;
+}
+
+.companyName {
+  text-transform: capitalize;
+}
+
+.companyMedia {
+  --media-dimension: 4.2rem;
+
+  width: var(--media-dimension);
+  height: var(--media-dimension);
+  grid-row: 1 /-1;
+  border-radius: 0.4rem;
 }

@@ -6,7 +6,7 @@ export default function ({ className, icon, children }) {
   return (
     <div className={cn(className, style.root)}>
       <Icon className={cn(style.icon)} icon={icon} />
-      <span>{children}</span>
+      <span className={style.label}>{children}</span>
     </div>
   );
 }

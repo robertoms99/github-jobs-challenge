@@ -29,6 +29,12 @@
   font-size: 1.4rem;
 }
 
+.inputLabel,
+.radio,
+.checkbox {
+  cursor: pointer;
+}
+
 .inputCity {
   margin: 1em 0 1.65em;
 }
