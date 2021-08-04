@@ -4,6 +4,11 @@
   align-items: center;
 }
 
+@mixin accentStyle {
+  background-color: var(--color-accent);
+  color: white !important;
+}
+
 @mixin responsive($media-query) {
   @media #{$media-query} {
     @content;

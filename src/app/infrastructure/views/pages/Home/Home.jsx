@@ -36,7 +36,7 @@ export default function () {
             />
           </article>
         </section>
-        <Pagination count={5} />
+        <Pagination count={5} className={style.pagination} />
       </div>
     </main>
   );
