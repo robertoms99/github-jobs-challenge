@@ -3,3 +3,27 @@
   justify-content: center;
   align-items: center;
 }
+
+@mixin responsive($media-query) {
+  @media #{$media-query} {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @include responsive("(min-width: 48em)") {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @include responsive("(min-width: 75em)") {
+    @content;
+  }
+}
+
+@mixin tv {
+  @include responsive("(min-width: 90em)") {
+    @content;
+  }
+}

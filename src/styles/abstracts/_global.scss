@@ -13,6 +13,9 @@ body {
   font-family: var(--font-primary-config);
   color: var(--text-color-primary);
   background-color: var(--app-background-color);
+  @include tv {
+    font-size: 1.8rem;
+  }
 }
 
 html,
@@ -21,9 +24,11 @@ body {
 }
 
 .container {
-  margin: auto;
-  width: 95%;
+  margin: 0 2.5%;
   padding: 1em 0;
+  @include desktop {
+    margin: 0 10%;
+  }
 }
 
 .logo {

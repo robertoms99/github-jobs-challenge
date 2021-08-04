@@ -1,3 +1,5 @@
+@use '../../../../../styles/abstracts/mixin' as *;
+
 .banner {
   background: var(--banner-home-image) center/cover;
   padding: 2.5em 0;
@@ -12,8 +14,31 @@
   display: flex;
   border-radius: 0.4rem;
   padding: 0.25em;
+  @include tablet {
+    width: 70%;
+  }
 }
 
 .inputGroup {
   flex: 1;
+}
+
+.content {
+  @include tablet {
+    display: flex;
+  }
+}
+
+.leftContent {
+  @include tablet {
+    max-width: 35%;
+    margin-right: 2.75em;
+  }
+}
+
+.leftContent,
+.rightContent {
+  @include tablet {
+    flex: 1;
+  }
 }

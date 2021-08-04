@@ -35,8 +35,8 @@ export default function () {
               className={style.jobList}
             />
           </article>
-          <Pagination count={5} />
         </section>
+        <Pagination count={5} />
       </div>
     </main>
   );
