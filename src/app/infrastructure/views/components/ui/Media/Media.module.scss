@@ -1,3 +1,13 @@
 .root {
-  background-color: red;
+  overflow: hidden;
+}
+
+.object {
+  max-width: 100%;
+}
+
+.objectCover {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }

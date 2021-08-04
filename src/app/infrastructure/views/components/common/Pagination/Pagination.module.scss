@@ -1,0 +1,32 @@
+@use '../../../../../../styles/abstracts/mixin' as *;
+
+.root {
+  display: flex;
+  align-items: center;
+}
+
+.buttonPage,
+.control {
+  --button-page-dimension: 2.25em;
+
+  border: 0.1rem solid;
+  border-radius: 0.4rem;
+  width: var(--button-page-dimension);
+  height: var(--button-page-dimension);
+  @include absoluteCenter;
+
+  margin-right: 0.75em;
+  color: var(--color-grey);
+  &:hover,
+  &:active {
+    color: var(--color-accent);
+  }
+}
+
+.buttonPageActive {
+  @include accentStyle;
+}
+
+.pagesGroup {
+  display: flex;
+}

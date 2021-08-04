@@ -1,11 +1,13 @@
+@use '../../../../../../styles/abstracts/mixin' as *;
+
 .root {
   font-weight: 500;
 }
 
 .primary {
+  @include accentStyle;
+
   border-radius: 0.4rem;
   text-transform: capitalize;
-  background-color: var(--color-accent);
-  color: white;
   padding: 0.85em 1.6em;
 }

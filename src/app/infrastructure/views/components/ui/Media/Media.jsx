@@ -9,7 +9,7 @@ export default function ({
 }) {
   return (
     <figure className={cn(className, style.root)} {...props}>
-      <img src={object} className={objectClassName} />
+      <img src={object} className={cn(style.object, objectClassName)} />
     </figure>
   );
 }

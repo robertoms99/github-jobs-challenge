@@ -1,0 +1,71 @@
+@use '../../../../../../styles/abstracts/mixin' as *;
+
+.root {
+  padding: 0.85em;
+  box-shadow: 0 0.2rem 0.4rem rgba(0, 0, 0, 0.05);
+  background-color: white;
+  display: flex;
+  margin-bottom: 2.1em;
+}
+
+.root,
+.media,
+.indicator {
+  border-radius: 0.4rem;
+}
+
+.contentLeft {
+  margin-right: 1em;
+}
+
+.contentRight {
+  flex-grow: 1;
+  position: relative;
+}
+
+.media {
+  --media-dimension: 5.6em;
+
+  width: var(--media-dimension);
+  height: var(--media-dimension);
+}
+
+.company {
+  font-size: 0.75em;
+  font-weight: 700;
+  text-transform: capitalize;
+  margin-bottom: 0.5em;
+}
+
+.career {
+  font-size: 1em;
+  font-weight: 400;
+  margin-bottom: 0.87em;
+  text-transform: capitalize;
+}
+
+.indicator {
+  display: inline-block;
+  font-weight: 700;
+  font-size: 1.2rem;
+  border: 0.1rem solid;
+  padding: 0.45em 0.5em;
+}
+
+.detail {
+  margin-top: 2.5em;
+  display: flex;
+  font-size: 1.2rem;
+  @include tablet {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    margin: 0 0 1.25em;
+  }
+}
+
+.itemDetail {
+  &:first-child {
+    margin-right: 1.8em;
+  }
+}

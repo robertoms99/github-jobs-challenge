@@ -1,17 +1,27 @@
 import cn from "classnames";
 import style from "./Pagination.module.scss";
 import Button from "../../ui/Button";
+import Icon from "../../ui/Icon";
+import { faArrowLeft, faArrowRight } from "@fortawesome/free-solid-svg-icons";
 
 export default function ({ className, count = 0 }) {
   return (
     <div className={cn(className, style.root)}>
-      <Button className={cn(style.control, style.controlPrev)}>{`<`}</Button>
+      <Button className={cn(style.control, style.controlPrev)}>
+        <Icon icon={faArrowLeft} />
+      </Button>
       <div className={style.pagesGroup}>
-        {[1, 2, 3, 4, 5].map((el) => (
-          <Button className={style.buttonPage}>{el}</Button>
-        ))}
+        <Button className={style.buttonPage}>1</Button>
+        <Button className={cn(style.buttonPage, style.buttonPageActive)}>
+          2
+        </Button>
+        <Button className={style.buttonPage}>3</Button>
+        ...
+        <Button className={style.buttonPage}>10</Button>
       </div>
-      <Button className={cn(style.control, style.controlNext)}>{`>`}</Button>
+      <Button className={cn(style.control, style.controlNext)}>
+        <Icon icon={faArrowRight} />
+      </Button>
     </div>
   );
 }
