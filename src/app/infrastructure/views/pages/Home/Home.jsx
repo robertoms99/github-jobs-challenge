@@ -30,7 +30,10 @@ export default function () {
             <FilterJobs className={style.filterJobs} />
           </article>
           <article className={style.rightContent}>
-            <JobList jobs={[{ id: 1 }, { id: 2 }]} className={style.jobList} />
+            <JobList
+              jobs={[{ id: 1 }, { id: 2 }, { id: 3 }, { id: 4 }, { id: 5 }]}
+              className={style.jobList}
+            />
           </article>
           <Pagination count={5} />
         </section>

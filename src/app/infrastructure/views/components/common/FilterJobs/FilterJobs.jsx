@@ -3,7 +3,6 @@ import InputDecorated from "../../ui/InputDecorated";
 import Form from "../Form/Form";
 import cn from "classnames";
 import { faGlobeAfrica } from "@fortawesome/free-solid-svg-icons";
-
 import style from "./FilterJobs.module.scss";
 
 export default function ({ className }) {

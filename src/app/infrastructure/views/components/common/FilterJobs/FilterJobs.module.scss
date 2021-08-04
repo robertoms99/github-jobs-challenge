@@ -1,27 +1,36 @@
 .root {
-  font-size: var(--font-secondary-config);
+  font-family: var(--font-secondary-config);
 }
 
 .inputGroup {
   display: flex;
+  align-items: center;
   width: max-content;
   margin-left: 0.5em;
+  margin-bottom: 0.85em;
   font-weight: 500;
   text-transform: capitalize;
 }
 
 .radio,
 .checkbox {
-  margin: 0 0.75em 0.85em 0;
-  vertical-align: middle;
+  --controls-dimension: 1.8rem;
+
+  margin-right: 0.75em;
+  height: var(--controls-dimension);
+  width: var(--controls-dimension);
 }
 
 .locationGroup {
   margin-top: 2em;
 }
 
+.inputLabel {
+  font-size: 1.4rem;
+}
+
 .inputCity {
-  margin: 1.65em 0;
+  margin: 1em 0 1.65em;
 }
 
 .headingLocation {
