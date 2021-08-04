@@ -9,8 +9,7 @@
 }
 
 .root,
-.media,
-.indicator {
+.media {
   border-radius: 0.4rem;
 }
 
@@ -42,14 +41,6 @@
   font-weight: 400;
   margin-bottom: 0.87em;
   text-transform: capitalize;
-}
-
-.indicator {
-  display: inline-block;
-  font-weight: 700;
-  font-size: 1.2rem;
-  border: 0.1rem solid;
-  padding: 0.45em 0.5em;
 }
 
 .detail {

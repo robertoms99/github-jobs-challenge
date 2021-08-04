@@ -1,0 +1,39 @@
+@use '../../../../../styles/abstracts/mixin' as *;
+
+.iconLink {
+  margin-right: 0.9em;
+}
+
+.instructionHeading {
+  margin-bottom: 1.6rem;
+}
+
+.paragraph {
+  margin-bottom: 2.25em;
+  font-family: var(--font-secondary-config);
+  font-weight: 500;
+}
+
+.back {
+  margin: 2em 0;
+}
+
+.content {
+  @include tablet {
+    display: flex;
+  }
+}
+
+.leftContent {
+  @include tablet {
+    max-width: 25%;
+    margin-right: 2.75em;
+  }
+}
+
+.leftContent,
+.rightContent {
+  @include tablet {
+    flex: 1;
+  }
+}

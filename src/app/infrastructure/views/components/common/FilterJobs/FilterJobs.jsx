@@ -4,6 +4,7 @@ import Form from "../Form/Form";
 import cn from "classnames";
 import { faGlobeAfrica } from "@fortawesome/free-solid-svg-icons";
 import style from "./FilterJobs.module.scss";
+import SubHeading from "../../ui/SubHeading";
 
 export default function ({ className }) {
   return (
@@ -16,7 +17,7 @@ export default function ({ className }) {
       </div>
       <div className={style.locationGroup}>
         <Form className={style.formLocation}>
-          <h4 className={style.headingLocation}>location</h4>
+          <SubHeading>location</SubHeading>
           <InputDecorated
             placeholder="City, state, zip code or country"
             icon={faGlobeAfrica}

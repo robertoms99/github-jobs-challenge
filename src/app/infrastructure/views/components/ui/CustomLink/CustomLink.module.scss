@@ -1,0 +1,10 @@
+.root {
+  display: inline-block;
+  text-transform: capitalize;
+}
+
+.accent {
+  color: var(--color-accent);
+  font-family: var(--font-secondary-config);
+  font-weight: 500;
+}

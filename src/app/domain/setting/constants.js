@@ -1,4 +1,5 @@
 import Home from "../../infrastructure/views/pages/Home";
+import Career from "../../infrastructure/views/pages/Career";
 
 const APP_ROUTES = [
   {
@@ -8,8 +9,8 @@ const APP_ROUTES = [
   },
   {
     id: 2,
-    path: "/job/:slug",
-    component: Home,
+    path: "/career/:slug",
+    component: Career,
   },
 ];
 

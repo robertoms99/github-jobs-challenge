@@ -5,6 +5,7 @@ import TaggedIcon from "../../ui/TaggedIcon";
 import notFoundImage from "../../../../../../assets/images/not_found.jpg";
 import cn from "classnames";
 import { faGlobeAfrica, faClock } from "@fortawesome/free-solid-svg-icons";
+import Tag from "../../ui/Tag";
 
 export default function ({ job }) {
   return (
@@ -20,7 +21,7 @@ export default function ({ job }) {
         <div className={style.description}>
           <h6 className={style.company}>lev</h6>
           <h3 className={style.career}>software developer</h3>
-          <span className={style.indicator}> full time</span>
+          <Tag> full time</Tag>
         </div>
         <div className={style.detail}>
           <TaggedIcon
