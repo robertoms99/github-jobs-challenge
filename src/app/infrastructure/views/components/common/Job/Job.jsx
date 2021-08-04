@@ -2,6 +2,7 @@ import style from "./Job.module.scss";
 import mediaStyle from "../../ui/Media/Media.module.scss";
 import Media from "../../ui/Media";
 import TaggedIcon from "../../ui/TaggedIcon";
+import notFoundImage from "../../../../../../assets/images/not_found.jpg";
 import cn from "classnames";
 import { faGlobeAfrica, faClock } from "@fortawesome/free-solid-svg-icons";
 
@@ -11,7 +12,7 @@ export default function ({ job }) {
       <div className={style.contentLeft}>
         <Media
           className={style.media}
-          object="https://via.placeholder.com/500"
+          object={notFoundImage}
           objectClassName={mediaStyle.objectCover}
         />
       </div>
