@@ -10,11 +10,22 @@ import cn from "classnames";
 import FilterJobs from "../../components/common/FilterJobs";
 import Pagination from "../../components/common/Pagination";
 import { useJobs } from "./hooks/useJobs";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import { DEFAULT_LOCATIONS } from "../../../../domain/setting/constants";
 
 export default function () {
-  const { jobs, ...jobsHook } = useJobs([1]);
-  useEffect(jobsHook.getFilteredJobs);
+  const { jobs, ...jobsHook } = useJobs([1,2,3,4])
+  const [isFullTime,setIsFullTime] = useState(false)
+  const [locationFilter, setLocationFilter] = useState(DEFAULT_LOCATIONS[0])
+  useEffect(jobsHook.getFilteredJobs)
+
+  const onFullTimeChange = (isFullTime)=>{
+    setIsFullTime(isFullTime)
+  }
+
+  const onLocationFilterChange = (location)=>{
+    setLocationFilter(location)
+  }
 
   return (
     <main className="container">
@@ -32,7 +43,7 @@ export default function () {
         </div>
         <section className={style.content}>
           <article className={style.leftContent}>
-            <FilterJobs className={style.filterJobs} />
+            <FilterJobs className={style.filterJobs} onFullTimeChange={onFullTimeChange} isFullTime={isFullTime} locationFilter={locationFilter} onLocationFilterChange={onLocationFilterChange}/>
           </article>
           <article className={style.rightContent}>
             <JobList jobs={jobs} className={style.jobList} />

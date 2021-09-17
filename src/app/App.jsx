@@ -6,8 +6,8 @@ function App() {
     <Router>
       <Switch>
         {APP_ROUTES.map((route, index) => (
-          <Route exact path={route.path} key={`route-${index}`}>
-            <route.component key={`component-${index}`} />
+          <Route exact path={route.path} key={index}>
+            <route.component />
           </Route>
         ))}
       </Switch>

@@ -7,11 +7,14 @@ import style from "./FilterJobs.module.scss";
 import SubHeading from "../../ui/SubHeading";
 import { DEFAULT_LOCATIONS } from "../../../../../domain/setting/constants";
 
-export default function ({ className }) {
+export default function ({ className,onFullTimeChange,isFullTime,locationFilter ,onLocationFilterChange}) {
   return (
     <div className={cn(className, style.root)}>
       <div className={style.inputGroup}>
-        <Input type="checkbox" id="filter-full" className={style.checkbox} />
+        <Input type="checkbox" id="filter-full" checked={isFullTime} className={style.checkbox} onChange={({target})=>{
+            const isChecked = target.checked
+            onFullTimeChange(isChecked)
+        }}/>
         <label htmlFor="filter-full" className={style.inputLabel}>
           Full time
         </label>
@@ -23,16 +26,20 @@ export default function ({ className }) {
             placeholder="City, state, zip code or country"
             icon={faGlobeAfrica}
             className={style.inputCity}
+            onChange={({target})=>onLocationFilterChange()}
           />
           <div className={style.radioGroup}>
             {DEFAULT_LOCATIONS.map((location, index) => (
-              <div className={style.inputGroup}>
+              <div className={style.inputGroup}  key={index}>
                 <Input
-                  defaultChecked={index === 0}
+                  checked={location === locationFilter}
+                  onChange={({target})=>{
+                    const isChecked = target.checked
+                    if(isChecked) onLocationFilterChange(location)
+                  }}
                   type="radio"
                   name="filter-locations-default"
                   id={`filter-locations-default-${index}`}
-                  key={`filter-locations-default-${index}`}
                   className={style.radio}
                   value={location}
                 />

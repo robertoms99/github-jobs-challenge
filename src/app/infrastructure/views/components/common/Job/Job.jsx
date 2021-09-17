@@ -6,10 +6,18 @@ import notFoundImage from "../../../../../../assets/images/not_found.jpg";
 import cn from "classnames";
 import { faGlobeAfrica, faClock } from "@fortawesome/free-solid-svg-icons";
 import Tag from "../../ui/Tag";
+import { useHistory } from "react-router-dom";
 
 export default function ({ job }) {
+  const history = useHistory()
+
+  const handleClick = ()=> {
+    const { id } = job
+    history.push(`/career/${id}`)
+  }
+
   return (
-    <div className={style.root}>
+    <div className={style.root} onClick={handleClick}>
       <div className={style.contentLeft}>
         <Media
           className={style.media}

@@ -1,5 +1,5 @@
 #  any distinct file
-!(**/*.{css})
+!(**/*.{css,scss})
 
 # dependencies
 /node_modules
