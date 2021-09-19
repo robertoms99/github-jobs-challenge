@@ -1,9 +1,11 @@
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import { APP_ROUTES } from './domain/setting/constants'
+import { Suspense } from 'react'
 import FilterContextProvider from './infrastructure/views/components/common/FilterContextProvider'
 
 function App() {
   return (
+    <Suspense fallback={<div>loading</div>}>
     <Router>
       <FilterContextProvider>
         <Switch>
@@ -15,6 +17,7 @@ function App() {
         </Switch>
       </FilterContextProvider>
     </Router>
+    </Suspense>
   )
 }
 

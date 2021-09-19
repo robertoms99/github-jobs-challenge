@@ -1,5 +1,7 @@
-import Home from '../../infrastructure/views/pages/Home'
-import Career from '../../infrastructure/views/pages/Career'
+import { lazy } from 'react'
+
+const Home =  lazy (async ()=> import('../../infrastructure/views/pages/Home'))
+const Career = lazy (async ()=> import('../../infrastructure/views/pages/Career'))
 
 const CONTEXT_STATE_FILTERS = {
   location: '',
@@ -9,7 +11,7 @@ const CONTEXT_STATE_FILTERS = {
     onChangeLocation: () => {},
     onChangeIsFullTime: () => {},
     onChangeDescription: () => {},
-  },
+  }
 }
 
 const APP_ROUTES = [
