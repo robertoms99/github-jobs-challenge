@@ -43,7 +43,7 @@ export default function () {
             <JobList jobs={jobs} className={style.jobList} />
           </article>
         </section>
-        <Pagination count={5} className={style.pagination} />
+        <Pagination count={4} totalCount={jobs.length} className={style.pagination} />
       </div>
     </main>
   )
