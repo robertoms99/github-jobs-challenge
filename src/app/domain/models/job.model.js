@@ -1,6 +1,6 @@
 class Job {
     id = 0
-    name = ""
+    company = ""
     career = ""
     isFullTime = false
     location = ""
