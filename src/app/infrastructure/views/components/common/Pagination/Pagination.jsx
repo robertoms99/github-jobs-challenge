@@ -7,14 +7,16 @@ import { useEffect, useState } from 'react';
 import usePagination from '../../../hooks/usePagination'
 
 export default function ({ className, count = 1, totalCount=1 }) {
-  const {pages:pagesCount,currentIndex,actions:{updateCurrentPage,nextStep,previousStep}}= usePagination(count,totalCount )
+  const {pages:pagesCount,currentIndex,actions:{updateCurrentPage}}= usePagination(count,totalCount )
   const [pages,setPages] = useState(new Array(pagesCount))
 
   useEffect(()=>{
     let pagesByCount = []
-    for(let index= 0; index < count; index++) pagesByCount.push(index + 1)
+    for(let index= 0; index < pagesCount; index++) pagesByCount.push(index + 1)
     setPages(pagesByCount)
   },[pagesCount])
+
+  if(pages.length <= 1) return null
 
   return (
     <div className={cn(className, style.root)}>

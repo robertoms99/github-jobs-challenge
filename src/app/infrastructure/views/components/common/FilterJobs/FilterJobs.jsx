@@ -6,14 +6,19 @@ import { faGlobeAfrica } from "@fortawesome/free-solid-svg-icons";
 import style from "./FilterJobs.module.scss";
 import SubHeading from "../../ui/SubHeading";
 import { DEFAULT_LOCATIONS } from "../../../../../domain/setting/constants";
+import { useContext } from 'react';
+import FilterContext from '../../../context/FilterContext';
 
-export default function ({ className,onFullTimeChange,isFullTime,locationFilter ,onLocationFilterChange}) {
+export default function ({ className}) {
+  const {location:locationFilter,isFullTime,actions:{onChangeIsFullTime,onChangeLocation}} = useContext(FilterContext)
+
+
   return (
     <div className={cn(className, style.root)}>
       <div className={style.inputGroup}>
         <Input type="checkbox" id="filter-full" checked={isFullTime} className={style.checkbox} onChange={({target})=>{
             const isChecked = target.checked
-            onFullTimeChange(isChecked)
+            onChangeIsFullTime(isChecked)
         }}/>
         <label htmlFor="filter-full" className={style.inputLabel}>
           Full time
@@ -26,7 +31,7 @@ export default function ({ className,onFullTimeChange,isFullTime,locationFilter 
             placeholder="City, state, zip code or country"
             icon={faGlobeAfrica}
             className={style.inputCity}
-            onChange={({target})=>onLocationFilterChange()}
+            onChange={({target})=> onChangeLocation(target.value)}
           />
           <div className={style.radioGroup}>
             {DEFAULT_LOCATIONS.map((location, index) => (
@@ -35,7 +40,7 @@ export default function ({ className,onFullTimeChange,isFullTime,locationFilter 
                   checked={location === locationFilter}
                   onChange={({target})=>{
                     const isChecked = target.checked
-                    if(isChecked) onLocationFilterChange(location)
+                    if(isChecked) onChangeLocation(location)
                   }}
                   type="radio"
                   name="filter-locations-default"

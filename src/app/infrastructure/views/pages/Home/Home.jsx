@@ -5,22 +5,10 @@ import FilterJobs from '../../components/common/FilterJobs'
 import Pagination from '../../components/common/Pagination'
 import { useJobs } from './hooks/useJobs'
 import { useEffect, useState } from 'react'
-import { DEFAULT_LOCATIONS } from '../../../../domain/setting/constants'
+import { DEFAULT_LOCATIONS, MAX_COUNT_ITEMS_PER_PAGE } from '../../../../domain/setting/constants'
 import SearchForm from './components/SearchForm/SearchForm'
 
-export default function () {
-  const { jobs, ...jobsHook } = useJobs([1, 2, 3, 4])
-  const [isFullTime, setIsFullTime] = useState(false)
-  const [locationFilter, setLocationFilter] = useState(DEFAULT_LOCATIONS[0])
-  useEffect(jobsHook.getFilteredJobs)
-
-  const onFullTimeChange = (isFullTime) => {
-    setIsFullTime(isFullTime)
-  }
-
-  const onLocationFilterChange = (location) => {
-    setLocationFilter(location)
-  }
+const Home = ()=> {
 
   return (
     <main className="container">
@@ -33,18 +21,16 @@ export default function () {
           <article className={style.leftContent}>
             <FilterJobs
               className={style.filterJobs}
-              onFullTimeChange={onFullTimeChange}
-              isFullTime={isFullTime}
-              locationFilter={locationFilter}
-              onLocationFilterChange={onLocationFilterChange}
             />
           </article>
           <article className={style.rightContent}>
-            <JobList jobs={jobs} className={style.jobList} />
+            <JobList jobs={[]} className={style.jobList} />
           </article>
         </section>
-        <Pagination count={4} totalCount={jobs.length} className={style.pagination} />
+        <Pagination count={MAX_COUNT_ITEMS_PER_PAGE} totalCount={0} className={style.pagination} />
       </div>
     </main>
   )
 }
+
+export default Home
