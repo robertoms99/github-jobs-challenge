@@ -6,37 +6,34 @@ import notFoundImage from "../../../../../../assets/images/not_found.jpg";
 import cn from "classnames";
 import { faGlobeAfrica, faClock } from "@fortawesome/free-solid-svg-icons";
 import Tag from "../../ui/Tag";
-import { useHistory } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
+import useImageFallback from '../../../hooks/useImageFallback/useImageFallback';
 
 export default function ({ job }) {
-  const history = useHistory()
-
-  const handleClick = ()=> {
-    const { id } = job
-    history.push(`/career/${id}`)
-  }
+  const {imageWithFallback}= useImageFallback(job.urlImage, notFoundImage)
+  const { id,career,company } = job
 
   return (
-    <div className={style.root} onClick={handleClick}>
+    <Link className={style.root} to={`/career/${company}-${career}-${id}`}>
       <div className={style.contentLeft}>
         <Media
           className={style.media}
-          object={notFoundImage}
+          object={imageWithFallback}
           objectClassName={mediaStyle.objectCover}
         />
       </div>
       <div className={style.contentRight}>
         <div className={style.description}>
-          <h6 className={style.company}>lev</h6>
-          <h3 className={style.career}>software developer</h3>
-          <Tag> full time</Tag>
+          <h6 className={style.company}>{job.company}</h6>
+          <h3 className={style.career}>{job.career}</h3>
+          {job.isFullTime && (<Tag> full time</Tag>)}
         </div>
         <div className={style.detail}>
           <TaggedIcon
             className={cn(style.city, style.itemDetail)}
             icon={faGlobeAfrica}
           >
-            New York
+            {job.location.city}
           </TaggedIcon>
           <TaggedIcon
             className={cn(style.accessTime, style.itemDetail)}
@@ -46,6 +43,6 @@ export default function ({ job }) {
           </TaggedIcon>
         </div>
       </div>
-    </div>
+    </Link>
   );
 }

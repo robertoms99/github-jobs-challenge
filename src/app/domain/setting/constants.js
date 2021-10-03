@@ -3,7 +3,7 @@ import { lazy } from 'react'
 const Home =  lazy (async ()=> import('../../infrastructure/views/pages/Home'))
 const Career = lazy (async ()=> import('../../infrastructure/views/pages/Career'))
 
-const DEFAULT_LOCATIONS = ['medellin', 'tokyo', 'sidney', 'berlin']
+const DEFAULT_LOCATIONS = ['medellin', 'tokyo', 'sidney', 'barranquilla']
 
 const ACTION_TYPES= {
   CHANGE_LOCATION: 'CHANGE_LOCATION',
@@ -13,6 +13,7 @@ const ACTION_TYPES= {
 }
 
 const CONTEXT_STATE_FILTERS = {
+  loading:true,
   filteredJobs : [],
   location: DEFAULT_LOCATIONS[0] ?? '',
   description: '',

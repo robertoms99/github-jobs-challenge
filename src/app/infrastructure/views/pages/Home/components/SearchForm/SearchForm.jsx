@@ -5,18 +5,16 @@ import { faBriefcase } from '@fortawesome/free-solid-svg-icons'
 import buttonStyle from '../../../../components/ui/Button/Button.module.scss'
 import InputDecorated from '../../../../components/ui/InputDecorated'
 import style from './SearchForm.module.scss'
-import { useContext } from 'react'
+import { useContext, useRef } from 'react'
 import FilterContext from '../../../../context/FilterContext'
 
 const SearchForm = (props) => {
-  const { description, actions } = useContext(FilterContext)
+  const { actions } = useContext(FilterContext)
+  const inputRef = useRef(null)
 
   const handleSubmit = (e) => {
     e.preventDefault()
-  }
-
-  const handleChange = (e) => {
-    actions.onChangeDescription(e.target.value)
+    actions.onChangeDescription(inputRef.current.value)
   }
 
   return (
@@ -25,8 +23,7 @@ const SearchForm = (props) => {
         className={style.inputGroup}
         placeholder="Title, companies, expertise or benefits"
         icon={faBriefcase}
-        value={description}
-        onChange={handleChange}
+        ref={inputRef}
       />
       <Button className={cn(buttonStyle.primary)}>search</Button>
     </Form>

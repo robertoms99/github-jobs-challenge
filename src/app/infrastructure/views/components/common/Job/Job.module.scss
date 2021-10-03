@@ -47,6 +47,7 @@
   margin-top: 2.5em;
   display: flex;
   font-size: 1.2rem;
+  text-transform: capitalize;
   @include tablet {
     position: absolute;
     bottom: 0;

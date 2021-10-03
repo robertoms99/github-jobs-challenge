@@ -1,6 +1,6 @@
-import { useCallback, useEffect, useReducer, useRef } from 'react'
+import { useCallback, useEffect, useReducer, useRef, useState } from 'react'
 import { ACTION_TYPES, CONTEXT_STATE_FILTERS } from '../../../../domain/setting/constants'
-import  {debounce, throttle} from '../../../lib/wrapperify/wrapperify'
+import  {debounce} from '../../../lib/wrapperify/wrapperify'
 import jobService from '../../../../domain/services/jobs.service'
 
 const reducer = (state=CONTEXT_STATE_FILTERS,action)=> {
@@ -19,21 +19,48 @@ const reducer = (state=CONTEXT_STATE_FILTERS,action)=> {
 
 const useFilter = () => {
   const [state,dispatch] = useReducer(reducer,CONTEXT_STATE_FILTERS)
-  const debouncing = useRef(debounce((location)=>{
-    (async ()=> {
-      const jobs = await jobService.getJobsByLocation(location)
-      onChangeFilteredJobs(jobs)
-    })()
-}, 1000))
-
-  const onChangeFilteredJobs = (jobs)=> dispatch({type:ACTION_TYPES.UPDATE_FILTERED_JOBS,jobs})
+  const [loading,setLoading] = useState(true)
+  const [mounted,setMounted] = useState(false)
 
   useEffect(()=>{
-    console.log(state.location)
-    if(state.location.length > 0) debouncing.current(state.location)
+    if(!mounted) return setMounted(true)
+    setLoading(false)
+  },[state.filteredJobs])
+
+  useEffect(()=>{
+    setLoading(true)
+  },[state.description,state.location])
+
+  const getJobsByLocationWithDebouncing = useCallback(debounce((location)=>{
+    (async ()=> {
+      if(location.trim().length > 0) {
+        const jobs = await jobService.getJobsByLocation(location)
+        onChangeFilteredJobs(jobs)
+      }
+    })()
+  },700),[])
+
+  const getJobsByDescription = useCallback((description)=>{
+    (async ()=> {
+      if(description.trim().length > 0) {
+        const jobs = await jobService.getJobsByDescription(description)
+        onChangeFilteredJobs(jobs)
+      }
+    })()
+  },[])
+
+  const onChangeFilteredJobs = (jobs) => dispatch({type:ACTION_TYPES.UPDATE_FILTERED_JOBS,jobs})
+
+  useEffect(()=>{
+    getJobsByLocationWithDebouncing(state.location)
   },[state.location])
 
+  useEffect(()=>{
+    getJobsByDescription(state.description)
+  },[state.description])
+
   return {
+    loading,
     location: state.location,
     description:state.description,
     isFullTime:state.isFullTime,
@@ -41,7 +68,7 @@ const useFilter = () => {
     actions: {
       onChangeLocation: (location)=> dispatch({type:ACTION_TYPES.CHANGE_LOCATION,location}),
       onChangeIsFullTime: ()=> dispatch({type:ACTION_TYPES.TOGGLE_IS_FULL_TIME}),
-      onChangeDescription: ()=> dispatch({type: ACTION_TYPES.CHANGE_DESCRIPTION}),
+      onChangeDescription: (description)=> dispatch({type: ACTION_TYPES.CHANGE_DESCRIPTION,description}),
       onChangeFilteredJobs
     },
   }

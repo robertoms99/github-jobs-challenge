@@ -6,9 +6,14 @@ import { faAngleLeft, faAngleRight } from "@fortawesome/free-solid-svg-icons";
 import { useEffect, useState } from 'react';
 import usePagination from '../../../hooks/usePagination'
 
-export default function ({ className, count = 1, totalCount=1 }) {
-  const {pages:pagesCount,currentIndex,actions:{updateCurrentPage}}= usePagination(count,totalCount )
+export default function ({ className, setCurrentIndex, count = 1, totalCount=1 }) {
+  const {pages:pagesCount,currentIndex,actions:{nextStep,setTotalCount,previousStep, updateCurrentPage}}= usePagination(count,totalCount )
   const [pages,setPages] = useState(new Array(pagesCount))
+
+  useEffect(()=>{
+    setTotalCount(totalCount)
+    setCurrentIndex(currentIndex)
+  },[currentIndex,totalCount])
 
   useEffect(()=>{
     let pagesByCount = []
@@ -20,7 +25,7 @@ export default function ({ className, count = 1, totalCount=1 }) {
 
   return (
     <div className={cn(className, style.root)}>
-      <Button className={cn(style.control, style.controlPrev)}>
+      <Button className={cn(style.control, style.controlPrev)} onClick={()=>previousStep()}>
         <Icon icon={faAngleLeft} />
       </Button>
       <div className={style.pagesGroup}>
@@ -41,7 +46,7 @@ export default function ({ className, count = 1, totalCount=1 }) {
         ...
         <Button className={style.buttonPage}>10</Button>*/ }
       </div>
-      <Button className={cn(style.control, style.controlNext)} >
+      <Button className={cn(style.control, style.controlNext)} onClick={()=>nextStep()}>
         <Icon icon={faAngleRight} />
       </Button>
     </div>
