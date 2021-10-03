@@ -1,0 +1,33 @@
+.root{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-weight: 900;
+}
+
+.loader {
+    --loader-dimension : 7em;
+    width: var(--loader-dimension);
+    height: var(--loader-dimension);
+    border-radius: 50%;
+    border: .65em solid ;
+    border-right-color: transparent;
+    animation: loading 600ms infinite;
+}
+
+.content{
+    margin-top: 1em;
+    text-transform: capitalize;
+}
+
+@keyframes loading {
+    0%{
+        transform: rotate(0);
+    }
+    100%{
+        transform: rotate(360deg);
+    }
+}
